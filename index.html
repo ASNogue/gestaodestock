@@ -1,30 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Stock - Armazém</title>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+
+
+
+    <script src="https://unpkg.com/html5-qrcode"></script> <!-- Inclusão de bibliotecas externas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Biblioteca para leitura de QR Code -->
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
         }
-        select, input, button {
+
+        select,
+        input,
+        button {
             margin: 10px;
             padding: 10px;
         }
     </style>
 </head>
+
 <body>
-     <div
-        class ="header">
+    <div class="header">
         <img src="Logo_empresa_.png" alt="Logo da Empresa" class="logo">
     </div>
     <h2>Gestão de Stock - Armazém</h2>
-    
+
+    <!-- Campo ID obrigatório -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <label for="id">ID:</label>
+        <input type="text" id="id" placeholder="Insira o ID e pressione enter">
+        <button onclick="validarID()" style="margin-left: 5px; padding: 10px;">Enter</button>
+    </div>
+
+    <script>
+        // Desabilita todos os outros campos inicialmente
+        document.addEventListener('DOMContentLoaded', function () {
+            desabilitarCampos();
+        });
+        function desabilitarCampos() {
+            document.getElementById('comboio').disabled = true;
+            document.getElementById('inspecao').disabled = true;
+            document.getElementById('quantidade').disabled = true;
+            document.querySelector('button[onclick="abrirLeitorQR()"]').disabled = true;
+        }
+        function habilitarCampos() {
+            document.getElementById('comboio').disabled = false;
+            document.getElementById('inspecao').disabled = false;
+            document.getElementById('quantidade').disabled = false;
+            document.querySelector('button[onclick="abrirLeitorQR()"]').disabled = false;
+        }
+        // função para validar que pressionou enter
+        function validarID(){
+            const idInput = document.getElementById('id');
+            if (idInput.value.trim() === '') {
+                alert('Utilizador desconhecido! Por favor, insira um ID válido.');
+                idInput.focus();
+                idInput.classList.add('required-field');
+                desabilitarCampos();
+            } else {
+                idInput.classList.remove('required-field');
+                habilitarCampos();
+                // Muda o foco para o comboio
+                    document.getElementById('comboio').focus();
+                }
+            }
+            // Adiciona o event listener para o Enter no campo ID
+            document.getElementById('id').addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Impede o comportamento padrão do enter
+
+                    validarID();
+                }
+            });
+    </script>
+
     <label for="comboio">Número do Comboio:</label>
     <select id="comboio">
         <option value="4001">4001</option>
@@ -37,7 +94,17 @@
         <option value="4009">4009</option>
         <option value="4010">4010</option>
     </select>
-    
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('comboio').disabled = true;
+                document.getElementById('inspecao').disabled = true;
+                document.getElementById('quantidade').disabled = false;
+                document.querySelector('button[onclick="abrirLeitorQR()"]').disabled = true;
+            });
+
+    </script>
+
     <label for="inspecao">Tipo de Inspeção:</label>
     <select id="inspecao">
         <option value="VAN">VAN</option>
@@ -59,64 +126,66 @@
         <option value="TRF">TRF</option>
 
     </select>
-    
+
     <div>
         <button onclick="abrirLeitorQR()">Ler Código QR</button>
         <div id="leitorQR"></div>
         <p id="codigoLido">Código QR: Nenhum</p>
     </div>
-    
+
     <label for="quantidade">Quantidade:</label>
     <input type="number" id="quantidade" min="1" value="1">
-    
+
     <button onclick="enviarDados()">Enviar</button>
-    
-       
+
+
     <script>
-        function abrirLeitorQR() {
-            let leitor = new Html5Qrcode("leitorQR");
-            leitor.start(
-                { facingMode: "environment" },
-                {
-                    fps: 10,
-                    qrbox: 250
-                },
-                qrCodeMessage => {
-                    document.getElementById("codigoLido").innerText = "Código QR: " + qrCodeMessage;
-                    leitor.stop();
-                },
-                errorMessage => {
-                    console.log("Erro na leitura do QR: ", errorMessage);
-                }
-            );
-        }
-        
-        function enviarDados() {
-            let comboio = document.getElementById("comboio").value;
-            let inspecao = document.getElementById("inspecao").value;
-            let codigoQR = document.getElementById("codigoLido").innerText.replace("Código QR: ", "");
-            let quantidade = document.getElementById("quantidade").value;
-            
-            let dados = {
-                comboio: comboio,
-                inspecao: inspecao,
-                codigoQR: codigoQR,
-                quantidade: quantidade
-            };
-            
-            console.log("Dados enviados: ", dados);
-            alert("Dados enviados com sucesso!");
-        }
-        
-        function gerarQRCode() {
-            let dados = document.getElementById("codigoLido").innerText.replace("Código QR: ", "");
-            if (dados === "Nenhum") {
-                alert("Nenhum código QR para gerar!");
-                return;
+            function abrirLeitorQR() {
+                let leitor = new Html5Qrcode("leitorQR");
+                leitor.start(
+                    { facingMode: "environment" },
+                    {
+                        fps: 10,
+                        qrbox: 250
+                    },
+                    qrCodeMessage => {
+                        document.getElementById("codigoLido").innerText = "Código QR: " + qrCodeMessage;
+                        leitor.stop();
+                    },
+                    errorMessage => {
+                        console.log("Erro na leitura do QR: ", errorMessage);
+                    }
+                );
             }
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"), dados);
-        }
+
+            function enviarDados() {
+                let comboio = document.getElementById("comboio").value;
+                let inspecao = document.getElementById("inspecao").value;
+                let codigoQR = document.getElementById("codigoLido").innerText.replace("Código QR: ", "");
+                let quantidade = document.getElementById("quantidade").value;
+
+                let dados = {
+                    id: id,
+                    comboio: comboio,
+                    inspecao: inspecao,
+                    codigoQR: codigoQR,
+                    quantidade: quantidade
+                };
+
+                console.log("Dados enviados: ", dados);
+                alert("Dados enviados com sucesso!");
+            }
+
+            function gerarQRCode() {
+                let dados = document.getElementById("codigoLido").innerText.replace("Código QR: ", "");
+                if (dados === "Nenhum") {
+                    alert("Nenhum código QR para gerar!");
+                    return;
+                }
+                document.getElementById("qrcode").innerHTML = "";
+                new QRCode(document.getElementById("qrcode"), dados);
+            }
     </script>
 </body>
+
 </html>
