@@ -21,7 +21,7 @@
     <!-- Campo ID obrigatório -->
     <div style="display: flex; justify-content: center; align-items: center;">
         <label for="id">ID:</label>
-        <input type="text" id="id" placeholder="Insira o ID e pressione Enter">
+        <input type="number" id="id" placeholder="Insira o ID e pressione Enter">
         <button onclick="validarID()" style="margin-left: 5px; padding: 10px;">Enter</button>
     </div>
 
@@ -71,7 +71,12 @@
     <input type="number" id="quantidade" min="1" value="1">
 
     <button onclick="enviarDados()">Enviar</button>
+    
+    <button onclick="reiniciarFormulario()">Reiniciar Requisição</button>
 
+    <footer>
+        &copy; 2025 Gestão de Stock - Todos os direitos reservados.
+    </footer>
     <script src="script.js"> </script>
 </body>
 
