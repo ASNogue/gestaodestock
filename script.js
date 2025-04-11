@@ -15,7 +15,10 @@ function desabilitarCampos() {
     const botaoQR = document.querySelector('button[onclick="abrirLeitorQR()"]');
     if (botaoQR) botaoQR.disabled = true;
 }
-
+function validarInteiro(input) {
+    // Remove valores não inteiros
+    input.value = input.value.replace(/[^0-9]/g, '');
+}
 // Função para habilitar um campo
 function habilitarCampo(id) {
     const elemento = document.getElementById(id);
@@ -151,3 +154,24 @@ window.addEventListener('load', function () {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) loadingScreen.style.display = 'none';
 });
+
+// Função para reiniciar o formulário
+function reiniciarFormulario() {
+    const confirmar = confirm("Tem certeza de que deseja reiniciar a requisição? Todos os dados serão perdidos.");
+    if (!confirmar) return;
+
+    const comboioSelect = document.getElementById('comboio');
+    if (comboioSelect) comboioSelect.value = 'selecionar';
+
+    const inspecaoSelect = document.getElementById('inspecao');
+    if (inspecaoSelect) inspecaoSelect.value = 'selecionar';
+
+    const quantidadeInput = document.getElementById('quantidade');
+    if (quantidadeInput) quantidadeInput.value = 1;
+
+    const codigoLido = document.getElementById('codigoLido');
+    if (codigoLido) codigoLido.innerText = 'Código QR: Nenhum';
+
+    desabilitarCampos();
+}
+
