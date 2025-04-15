@@ -17,14 +17,14 @@
                 <img src="Logo_empresa_.png" alt="Logo da Empresa" class="logo slide-right">
                 </div>
     <h2>Gestão de Stock - Armazém</h2>
-
+  
     <!-- Campo ID obrigatório -->
     <div style="display: flex; justify-content: center; align-items: center;">
         <label for="id">ID:</label>
         <input type="number" id="id" placeholder="Insira o ID e pressione Enter">
         <button onclick="validarID()" style="margin-left: 5px; padding: 10px;">Enter</button>
     </div>
-
+    <!-- Selecionar comboio -->
     <label for="comboio">Número do Comboio:</label>
     <select id="comboio">
         <option value="selecionar" disabled selected>Selecionar</option>
@@ -38,7 +38,7 @@
         <option value="4009">4009</option>
         <option value="4010">4010</option>
     </select>
-
+ <!-- Selecionar Inspeção -->
     <label for="inspecao">Tipo de Inspeção:</label>
     <select id="inspecao">
         <option value="selecionar" disabled selected>Selecionar</option>
@@ -61,12 +61,13 @@
         <option value="TRF">TRF</option>
     </select>
 
+    <!-- Função para abrir código Qr -->
     <div>
         <button onclick="abrirLeitorQR()">Ler Código QR</button>
         <div id="leitorQR"></div>
         <p id="codigoLido">Código QR: Nenhum</p>
     </div>
-
+<!-- Campo para quantidade de produto a requesitar -->
     <label for="quantidade">Quantidade:</label>
     <input type="number" id="quantidade" min="1" value="1">
 
