@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     configurarEventos();
 });
 
-// Função para desabilitar campos
+// Função para desabilitar campos 
+
 function desabilitarCampos() {
     const campos = ['comboio', 'inspecao', 'quantidade'];
     campos.forEach(campo => {
@@ -16,7 +17,7 @@ function desabilitarCampos() {
     if (botaoQR) botaoQR.disabled = true;
 }
 function validarInteiro(input) {
-    // Remove valores não inteiros
+    // Função para aceitar apenas numeros 
     input.value = input.value.replace(/[^0-9]/g, '');
 }
 // Função para habilitar um campo
