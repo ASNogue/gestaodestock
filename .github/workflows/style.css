@@ -1,0 +1,242 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hwb(0 98% 2%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100%);
+        opacity: ;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.slide-right {
+    animation: slideRight 2s ease-in-out;
+    position: relative;
+}
+/* Cabeçalho */
+.header {
+    background-color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header img {
+    max-width: 150px;
+}
+
+/* Título */
+h2 {
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+/* Formulário */
+div {
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input,
+select,
+/* Todos os botoes  */
+button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #05b938;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+  
+input:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Botões */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: lightgreen;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* QR Code */
+#leitorQR {
+    margin: 20px auto;
+    width: 250px;
+    height: 250px;
+    border: 2px dashed #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+/* Remove as setas de aumentar/diminuir em campos type="number" */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Estilo para o contentor de opções */
+.options-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.options-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-container li {
+    margin: 10px 0;
+}
+
+/* Estilo para links desabilitados */
+.options-container a.disabled {
+    pointer-events: none; /* Impede o clique */
+    opacity: 0.5; /* Torna visualmente desabilitado */
+    color: gray; /* Cor para indicar desabilitado */
+}
+
+.options-container a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.options-container a.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    color: gray;
+}
+
+.options-container a:hover {
+    text-decoration: underline;
+    color: #4CAF50;
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4CAF50;
+}
+/* Estilo para o formulário */
+form#dataForm {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    gap: 10px; /* Espaçamento entre os elementos */
+    margin-bottom: 20px;
+    width: 100%; /* Ajusta a largura do formulário */
+    max-width: 300px; /* Define uma largura máxima */
+}
+
+form#dataForm label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+form#dataForm input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Faz o campo ocupar toda a largura do formulário */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+form#dataForm button {
+    padding: 10 px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Espaçamento acima do botão */
+}
+
+form#dataForm button:hover {
+    background-color: #4CAF50;
+}
