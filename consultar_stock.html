@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Stock - Armazém</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="script_consulta_stock.js" defer></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -16,5 +16,32 @@
     <div class="header">
             <img src="Logo_empresa_.png" alt="Logo da Empresa" class="logo slide-right">
             </div>
-<h2 Consultar Stock ></h2>
+    <div class="container">
+        <h1>Consultar Stock</h1>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Introduza o código do produto" required>
+            <button type="submit">Consultar</button>
+        </form>
+
+        <div id="resultContainer" class="hidden">
+            <h2>Resultados da Consulta</h2>
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Armazém</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Os resultados serão inseridos aqui pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+
+        <footer>
+            &copy; 2025 Gestão de Stock - Todos os direitos reservados.
+        </footer>
 </body>
