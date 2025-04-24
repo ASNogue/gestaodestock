@@ -23,6 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     } else {
-        console.error('Elemento com ID "searchForm" não encontrado.');
+        console.error('Elemento com nomenclatura "searchForm" não encontrada.');
     }
 });
