@@ -6,18 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Stock - Armazém</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script_consulatr_requi.js" defer></script>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script_consultar_requi.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
 
     <div class="header">
-            <img src="Logo_empresa_.png" alt="Logo da Empresa" class="logo slide-right">
-            </div>
-<h2 Consultar Requisições ></h2>
+        <img src="Logo_empresa_.png" alt="Logo da Empresa" class="logo slide-right">
+    </div>
+    <div class="content">
+        <h1>Consultar Requisições</h1>
 
-     <footer>
-            &copy; 2025 Gestão de Stock - Todos os direitos reservados.
-        </footer>
+        <div class="requisicoes_container">
+            <table id="requisicoesTable">
+                <thead>
+                    <tr>
+                        <th>Equipamento</th>
+                        <th>Comboio</th>
+                        <th>Inspeção</th>
+                        <th>Data/Hora</th>
+                        <th>Cancelar Requisição</th>
+                    </tr>
+                </thead>
+
+
+                <tbody id="tabela-requisicao-id">
+                    <!-- As requisições serão inseridas aqui dinamicamente -->
+                </tbody>
+            </table>
+            <h2> Requisições Gerais</h2> <!-- Tabela apenas acessivel para nível 2 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Equipamento</th>
+                        <th>Comboio</th>
+                        <th>Inspeção</th>
+                        <th>Data/Hora</th>
+                        <th>Cancelar Requisição</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-requisicoes-gerais-id">
+                    <!-- As requisições serão inseridas aqui dinamicamente -->
+                </tbody>
+            </table>
+
+
+            <tbody id="tabela-requisicoes-gerais-id">
+
+                <!-- As requisições serão inseridas aqui dinamicamente -->
+
+            </tbody>
+            </table>
+            <button id="refreshButton">Atualizar Requisições</button> <!-- Botão para atualizar requisições -->
+        </div>
+    </div>
+
+
+    <footer>
+        &copy; 2025 Gestão de Stock - Todos os direitos reservados.
+    </footer>
+
 </body>
