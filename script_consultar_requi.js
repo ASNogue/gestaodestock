@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const tabelaID = document.getElementById('tabela-requisicao-id');
-    const tabelaGerais = document.getElementById('tabela-requisicoes-gerais-id');
+    const tabelaGerais = document.getElementById('tabela-requisicoes-gerais');
 
     // Limpar tabelas antes de preencher (caso seja atualização)
     tabelaID.innerHTML = '';
