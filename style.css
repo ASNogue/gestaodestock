@@ -266,7 +266,7 @@ form#dataForm button:hover {
     }
 
     button {
-        width: 100%; /* Faz os botões ocuparem toda a largura */
+        width: 75%; /* Faz os botões ocuparem toda a largura */
         font-size: 10px; /* Ajusta o tamanho da fonte dos botões */
     }
 }
