@@ -244,7 +244,7 @@ form#dataForm button:hover {
 /* Estilos para display´s menores que 768px (telemóveis v tablets) */
 @media (max-width: 768px) {
     body {
-        font-size: 14px; /* Reduz o tamanho da fonte */
+        font-size: 10px; /* Reduz o tamanho da fonte */
         padding: 10px; /* Ajusta o espaço */
     }
 
@@ -258,7 +258,7 @@ form#dataForm button:hover {
 
     table {
         width: 100%; /* Faz a tabela ocupar toda a largura */
-        font-size: 12px; /* Reduz o tamanho da fonte na tabela */
+        font-size: 10px; /* Reduz o tamanho da fonte na tabela */
     }
 
     th, td {
@@ -267,6 +267,6 @@ form#dataForm button:hover {
 
     button {
         width: 100%; /* Faz os botões ocuparem toda a largura */
-        font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
+        font-size: 10px; /* Ajusta o tamanho da fonte dos botões */
     }
 }
