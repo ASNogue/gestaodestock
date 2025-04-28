@@ -1,247 +1,224 @@
 /* Estilo geral */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: hwb(0 98% 2%);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    font-family: Arial, sans-serif; /* Define a fonte principal do corpo */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-color: hwb(0 98% 2%); /* Define a cor de fundo */
+    color: #333; /* Define a cor do texto */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    justify-content: center; /* Centraliza os elementos verticalmente */
+    min-height: 100vh; /* Define a altura mínima como 100% da altura da janela */
 }
+
+/* Animação para deslizar da esquerda para a direita */
 @keyframes slideRight {
     0% {
-        transform: translateX(-100%);
-        opacity: ;
+        transform: translateX(-100%); /* Começa fora da tela à esquerda */
+        opacity: ; /* Define a opacidade inicial */
     }
     100% {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateX(0); /* Move para a posição original */
+        opacity: 1; /* Define a opacidade final */
     }
 }
+
 .slide-right {
-    animation: slideRight 2s ease-in-out;
-    position: relative;
+    animation: slideRight 2s ease-in-out; /* Aplica a animação com duração de 2 segundos */
+    position: relative; /* Define a posição relativa */
 }
+
 /* Cabeçalho */
 .header {
-    background-color: white;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
+    background-color: white; /* Define a cor de fundo do cabeçalho */
+    width: 100%; /* Faz o cabeçalho ocupar toda a largura */
+    padding: 20px 0; /* Adiciona espaçamento interno vertical */
+    text-align: center; /* Centraliza o conteúdo do cabeçalho */
 }
 
 .header img {
-    max-width: 150px;
+    max-width: 150px; /* Define o tamanho máximo da imagem */
 }
 
 /* Título */
 h2 {
-    margin: 20px 0;
-    color: #4CAF50;
+    margin: 20px 0; /* Adiciona margem acima e abaixo do título */
+    color: #4CAF50; /* Define a cor do texto do título */
 }
 
 /* Formulário */
 div {
-    margin: 10px 0;
+    margin: 10px 0; /* Adiciona margem acima e abaixo do div */
 }
 
 label {
-    font-weight: bold;
-    margin-right: 10px;
+    font-weight: bold; /* Define o texto em negrito */
+    margin-right: 10px; /* Adiciona margem à direita do rótulo */
 }
 
 input,
 select,
-/* Todos os botoes  */
 button {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #05b938;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 300px;
-    max-width: 100%;
-    box-sizing: border-box;
+    margin: 10px; /* Adiciona margem ao redor dos elementos */
+    padding: 10px; /* Adiciona preenchimento interno */
+    border: 1px solid #05b938; /* Define a borda com cor verde */
+    border-radius: 5px; /* Arredonda os cantos */
+    font-size: 16px; /* Define o tamanho da fonte */
+    width: 300px; /* Define a largura dos elementos */
+    max-width: 100%; /* Garante que os elementos não ultrapassem 100% da largura */
+    box-sizing: border-box; /* Inclui borda e preenchimento no tamanho total */
 }
-  
+
 input:focus,
 select:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    border-color: #4CAF50; /* Altera a cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Adiciona um efeito de sombra */
 }
 
 /* Botões */
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: lightgreen;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #4CAF50; /* Define a cor de fundo do botão */
+    color: white; /* Define a cor do texto do botão */
+    border: lightgreen; /* Define a cor da borda */
+    cursor: pointer; /* Altera o cursor para "mão" ao passar o mouse */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Altera a cor de fundo ao passar o mouse */
 }
 
 button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    background-color: #ccc; /* Define a cor de fundo para botões desativados */
+    cursor: not-allowed; /* Altera o cursor para indicar que o botão está desativado */
 }
 
 /* QR Code */
 #leitorQR {
-    margin: 20px auto;
-    width: 250px;
-    height: 250px;
-    border: 2px dashed #4CAF50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #999;
+    margin: 20px auto; /* Adiciona margem acima e abaixo e centraliza horizontalmente */
+    width: 250px; /* Define a largura do leitor */
+    height: 250px; /* Define a altura do leitor */
+    border: 2px dashed #4CAF50; /* Define uma borda tracejada */
+    display: flex; /* Usa flexbox para layout interno */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    color: #999; /* Define a cor do texto */
 }
 
 /* Rodapé */
 footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    font-size: 14px;
-    text-align: center;
-    width: 100%;
+    margin-top: 20px; /* Adiciona margem acima do rodapé */
+    padding: 10px; /* Adiciona preenchimento interno */
+    background-color: #333; /* Define a cor de fundo */
+    color: white; /* Define a cor do texto */
+    font-size: 14px; /* Define o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Faz o rodapé ocupar toda a largura */
 }
+
 /* Remove as setas de aumentar/diminuir em campos type="number" */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    -webkit-appearance: none; /* Remove as setas no Chrome */
+    margin: 0; /* Remove a margem */
 }
 
 /* Estilo para o contentor de opções */
 .options-container {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Define a borda */
+    border-radius: 8px; /* Arredonda os cantos */
+    padding: 20px; /* Adiciona preenchimento interno */
+    margin-top: 20px; /* Adiciona margem acima */
+    background-color: #f9f9f9; /* Define a cor de fundo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
 }
 
 .options-container ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento interno */
+    margin: 0; /* Remove a margem */
 }
 
 .options-container li {
-    margin: 10px 0;
+    margin: 10px 0; /* Adiciona margem acima e abaixo dos itens */
 }
 
 /* Estilo para links desabilitados */
 .options-container a.disabled {
     pointer-events: none; /* Impede o clique */
     opacity: 0.5; /* Torna visualmente desabilitado */
-    color: gray; /* Cor para indicar desabilitado */
+    color: gray; /* Define a cor para indicar desabilitado */
 }
 
 .options-container a {
-    text-decoration: none;
-    color: #4CAF50;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.options-container a.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-    color: gray;
+    text-decoration: none; /* Remove o sublinhado */
+    color: #4CAF50; /* Define a cor do link */
+    font-size: 16px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o texto em negrito */
 }
 
 .options-container a:hover {
-    text-decoration: underline;
-    color: #4CAF50;
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    color: #4CAF50; /* Mantém a cor do link */
 }
 
-/* Estilo geral */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    max-width: 200px;
-}
-
-h2 {
-    color: #333;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-form button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #4CAF50;
-}
 /* Estilo para o formulário */
 form#dataForm {
-    display: flex;
-    flex-direction: column; /* Alinha os elementos verticalmente */
-    gap: 10px; /* Espaçamento entre os elementos */
-    margin-bottom: 20px;
-    width: 100%; /* Ajusta a largura do formulário */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    gap: 10px; /* Define o espaçamento entre os elementos */
+    margin-bottom: 20px; /* Adiciona margem abaixo do formulário */
+    width: 100%; /* Faz o formulário ocupar toda a largura */
     max-width: 300px; /* Define uma largura máxima */
 }
 
 form#dataForm label {
-    font-weight: bold;
-    margin-right: 5px;
+    font-weight: bold; /* Define o texto em negrito */
+    margin-right: 5px; /* Adiciona margem à direita do rótulo */
 }
 
 form#dataForm input {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px; /* Adiciona preenchimento interno */
+    font-size: 14px; /* Define o tamanho da fonte */
+    border: 1px solid #ccc; /* Define a borda */
+    border-radius: 4px; /* Arredonda os cantos */
     width: 100%; /* Faz o campo ocupar toda a largura do formulário */
-    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    box-sizing: border-box; /* Inclui borda e preenchimento no tamanho total */
 }
 
 form#dataForm button {
-    padding: 10 px;
-    font-size: 14px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px; /* Espaçamento acima do botão */
+    padding: 10px; /* Adiciona preenchimento interno */
+    font-size: 14px; /* Define o tamanho da fonte */
+    background-color: #4CAF50; /* Define a cor de fundo */
+    color: white; /* Define a cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 4px; /* Arredonda os cantos */
+    cursor: pointer; /* Mostra o cursor de "mão" ao passar o mouse */
+    margin-top: 10px; /* Adiciona margem acima do botão */
 }
 
 form#dataForm button:hover {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Mantém a cor ao passar o mouse */
+}
+/* Estilo para adicionar linhas entre colunas nas tabelas */
+table {
+    border-collapse: collapse; /* Remove espaços entre as bordas */
+    width: 100%; /* Faz a tabela ocupar toda a largura */
 }
 
-/* Estilos para display´s menores que 768px (telemóveis v tablets) */
+th, td {
+    border: 1px solid #ccc; /* Adiciona uma borda fina às células */
+    padding: 8px; /* Adiciona espaçamento interno às células */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+thead th {
+    background-color: #f2f2f2; /* Adiciona uma cor de fundo ao cabeçalho */
+}
+
+/* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
     body {
         font-size: 10px; /* Reduz o tamanho da fonte */
@@ -253,7 +230,7 @@ form#dataForm button:hover {
     }
 
     .requisicoes_container {
-        overflow-x: auto; /* Permite deslizamento horizontal se necessário */
+        overflow-x: auto; /* Permite deslizar horizontalmente */
     }
 
     table {
