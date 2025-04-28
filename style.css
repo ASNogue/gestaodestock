@@ -240,3 +240,33 @@ form#dataForm button {
 form#dataForm button:hover {
     background-color: #4CAF50;
 }
+
+/* Estilos para display´s menores que 768px (telemóveis v tablets) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+        padding: 10px; /* Ajusta o espaço */
+    }
+
+    .header img {
+        max-width: 100px; /* Reduz o tamanho do logo */
+    }
+
+    .requisicoes_container {
+        overflow-x: auto; /* Permite deslizamento horizontal se necessário */
+    }
+
+    table {
+        width: 100%; /* Faz a tabela ocupar toda a largura */
+        font-size: 12px; /* Reduz o tamanho da fonte na tabela */
+    }
+
+    th, td {
+        padding: 5px; /* Reduz o espaço das células */
+    }
+
+    button {
+        width: 100%; /* Faz os botões ocuparem toda a largura */
+        font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
+    }
+}
