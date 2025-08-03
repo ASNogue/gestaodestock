@@ -1,5 +1,6 @@
 <?php
-session_start(); // Inicia ou mantém a sessão ativa
+session_start(); 
+header('Content-Type: application/json');
 
 // Verifica se o utilizador está autenticado
 if (!isset($_SESSION['utilizador_id'])) {
@@ -34,10 +35,9 @@ if ($conn->connect_error) {
 
 // Verifica se a nomenclatura existe e tem stock disponível
 $stmt_check = $conn->prepare("
-    SELECT e.designacao, s.quantidade 
-    FROM equipamentos e
-    JOIN stock s ON e.nomenclatura = s.nomenclatura 
-    WHERE e.nomenclatura = ?
+    SELECT designacao, quantidade 
+    FROM stock 
+    WHERE nomenclatura = ?
 ");
 $stmt_check->bind_param("s", $nomenclatura);
 $stmt_check->execute();
