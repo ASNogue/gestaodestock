@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 // Verifica se os dados foram enviados via POST
 if (!isset($_POST['id'], $_POST['password']) || empty($_POST['id']) || empty($_POST['password'])) {
