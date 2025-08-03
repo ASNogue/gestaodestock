@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicia ou continua a sessão
-
+header('Content-Type: application/json');
 
 
 // Verifica se o utilizador está autenticado
