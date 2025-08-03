@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 if (!isset($_SESSION['utilizador_id'])) {
     header("Location: menu.php"); // ficheiro pagina inicial
     exit();
