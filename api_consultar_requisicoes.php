@@ -1,6 +1,7 @@
 <?php
 // Inicia a sessão ou mantém a sessão existente
 session_start();
+header('Content-Type: application/json');
 
 // Verifica se o utilizador tem sessão válida com ID e nível de acesso definidos
 if (!isset($_SESSION['utilizador_id'], $_SESSION['nivel_acesso'])) {
@@ -13,12 +14,12 @@ if (!isset($_SESSION['utilizador_id'], $_SESSION['nivel_acesso'])) {
 $id = $_SESSION['utilizador_id'];
 $nivel = $_SESSION['nivel_acesso'];
 
-// Estabelece ligação à base de dados MySQL
+// Estabelece ligação à base de dados 
 $conn = new mysqli("localhost", "root", "pendulares", "gestao_stock");
 
 // Verifica se houve erro na ligação
 if ($conn->connect_error) {
-    http_response_code(500); // Código de erro do servidor
+    http_response_code(500); 
     echo json_encode(["erro" => "Erro na ligação à base de dados"]);
     exit();
 }
