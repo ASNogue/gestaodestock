@@ -1,6 +1,6 @@
 // Aguarda que todo o conteúdo HTML da página esteja carregado
 document.addEventListener("DOMContentLoaded", () => {
-    // Referência ao formulário de pesquisa
+    
     const form = document.getElementById("searchForm");
 
     // Campo de texto onde o utilizador insere a nomenclatura
