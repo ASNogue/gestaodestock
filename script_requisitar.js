@@ -127,10 +127,12 @@ function enviarDados() {
     const comboio = document.getElementById("comboio")?.value;
     const inspecao = document.getElementById("inspecao")?.value;
     const codigoQR = document.getElementById("codigoLido")?.textContent.replace("Código QR: ", "").trim();
-    const quantidade = document.getElementById("quantidade")?.value;
+    const quantidadeInput = document.getElementById("quantidade");
+    const quantidade = quantidadeInput ? parseInt(quantidadeInput.value) : 0;
 
     console.log("A enviar: ", {
         nomenclatura: codigoQR,
+        quantidade: quantidade,
         comboio: comboio,
         inspecao: inspecao
     });
