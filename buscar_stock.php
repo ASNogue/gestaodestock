@@ -1,45 +1,45 @@
 <?php
-// Inicia a sessão (mantém dados entre pedidos do utilizador)
 session_start();
-
-// Define o tipo de conteúdo da resposta como JSON
 header('Content-Type: application/json');
 
-// Parâmetros da ligação à base de dados
-$host = "localhost";
-$dbname = "gestao_stock";
-$user = "root";
-$password = "pendulares";
+// Conexão com a base de dados
+$conn = new mysqli("localhost", "root", "pendulares", "gestao_stock");
 
-try {
-    // Cria uma ligação PDO à base de dados MySQL
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Ativa os erros como exceções
-
-    // Lê os dados enviados no corpo da requisição (espera JSON)
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    // Extrai o termo de pesquisa, ou usa string vazia se não for fornecido
-    $termo = isset($data["termo"]) ? $data["termo"] : "";
-
-    // Prepara a query SQL com junção entre tabelas stock e equipamentos
-    $stmt = $pdo->prepare("
-        SELECT s.nomenclatura, e.designacao, s.quantidade, e.localizacao
-        FROM stock s
-        JOIN equipamentos e ON s.nomenclatura = e.nomenclatura
-        WHERE s.nomenclatura LIKE :termo
-    ");
-
-    // Executa a query substituindo :termo pelo termo com wildcard para pesquisa parcial
-    $stmt->execute([':termo' => "%$termo%"]);
-
-    // Vai buscar todos os resultados como array associativo
-    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Retorna os resultados em formato JSON
-    echo json_encode($resultados);
-} catch (PDOException $e) {
-    // Em caso de erro na base de dados, devolve uma mensagem de erro
-    echo json_encode(["error" => "Erro na base de dados: " . $e->getMessage()]);
+if ($conn->connect_error) {
+    echo json_encode(["error" => "Erro na ligação com o servidor!"]);
+    exit();
 }
+
+$data = json_decode(file_get_contents("php://input"), true);
+$termo = isset($data["termo"]) ? $data["termo"] : "";
+
+// Adiciona wildcards para pesquisa parcial
+$likeTermo = "%" . $termo . "%";
+
+$stmt = $conn->prepare("
+    SELECT nomenclatura, designacao, quantidade, localizacao
+    FROM stock 
+    WHERE nomenclatura LIKE ?
+");
+
+if (!$stmt) {
+    echo json_encode(["error" => "Erro na preparação da query!"]);
+    $conn->close();
+    exit();
+}
+
+$stmt->bind_param("s", $likeTermo);
+
+if (!$stmt->execute()) {
+    echo json_encode(["error" => "Erro na execução da query!"]);
+    $stmt->close();
+    $conn->close();
+    exit();
+}
+
+$resultados = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+echo json_encode($resultados);
+
+$stmt->close();
+$conn->close();
 ?>
