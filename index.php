@@ -39,5 +39,8 @@ unset($_SESSION['erro_login']); // Limpa a mensagem após usar
         <input type="password" id="dataPassword" name="password" required>
         <button type="submit">Entrar</button>
     </form>
+      <footer>
+        &copy; 2025 Gestão de Stock - Projeto André Nogueira.
+    </footer>
 </body>
 </html>
